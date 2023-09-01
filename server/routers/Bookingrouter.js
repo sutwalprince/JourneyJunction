@@ -47,8 +47,6 @@ router.post("/", authenticate, async (request, res) => {
       select: '_id name contact address email',
     });
 
-    // // console.log("Frf");
-    // Return the saved booking as the response
     res.status(201).json(populatedBooking);
   } catch (error) {
     // Handle any errors that may occur during booking
@@ -77,7 +75,7 @@ router.post("/sendConfirmationMail", authenticate, async (request, response) => 
       data: randomOTP
     });
   } catch (error) {
-    // // console.error(error);
+
     response.status(500).json({ errors: [{ msg: error.message }] });
   }
 });
